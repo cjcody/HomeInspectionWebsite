@@ -17,7 +17,7 @@
 			.logo-text {
 				font-size: 1.5em;
 				font-weight: 700;
-				color: #2C3E50;
+				color: transparent;
 				text-transform: uppercase;
 				letter-spacing: 2px;
 			}
@@ -69,7 +69,7 @@
 			}
 			.logo-container {
 				position: absolute;
-				top: 30%;
+				top: 80%;
 				left: 50%;
 				transform: translate(-50%, -50%);
 				z-index: 3;
@@ -80,46 +80,6 @@
 				max-width: 250px; /* Adjust size as needed */
 				height: auto;
 				padding: 0;
-			}
-			/* Small slideshow styles */
-			.small-slideshow {
-				position: relative;
-				width: 100%;
-				height: 240px;
-				overflow: hidden;
-				margin-bottom: 0;
-			}
-			.small-slide {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				opacity: 0;
-				transition: opacity 1s ease-in-out;
-				background-size: cover;
-				background-position: center;
-				background-repeat: no-repeat;
-			}
-			.small-slide.active {
-				opacity: 1;
-			}
-			.small-slide-text {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				color: white;
-				background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
-				padding: 15px 30px;
-				border-radius: 3px;
-				font-size: 0.9em;
-				text-align: center;
-				width: 100%; /* Set a specific width */
-			}
-			.orange-text {
-				color: #E67E22;
-				font-weight: bold;
 			}
 		</style>
 	</head>
@@ -165,10 +125,10 @@
 
 				<!-- Banner -->
 					<section id="banner">
-						<div class="inner">
+						<div class="inner schedule-banner-inner">
 							<h2>Best Choice Home Inspections</h2>
 							<p>Professional, thorough, and reliable home inspection services in West-Central Wisconsin</p>
-							<a href="contact.html" class="button primary">Schedule an Inspection</a>
+							<a href="contact.html" class="button primary schedule-inspection-btn">Schedule an Inspection</a>
 						</div>
 					</section>
 
@@ -235,7 +195,7 @@
 											<p>Former Construction teacher and active UW-Stout Professor with extensive experience in home inspection.</p>
 											<a href="about.html" class="special">Learn more about our expertise</a>
 										</article>
-										<article class="no-slideshow-padding">
+										<article>
 											<div class="small-slideshow">
 												<div class="small-slide" style="background-image: url('images/pic05.jpg');"><div class="small-slide-text"><span class="orange-text">Steve is a true professional.</span> We were in need of a same day inspection, and he made it happen. Had we not had Steve look at the property, I believe someone lacking his expertise would have missed a few key details that could have costs us thousands down the road. Thank you, Steve and Best Choice Home Inspections.<br>Troy Bryant</div></div>
 												<div class="small-slide" style="background-image: url('images/pic04.jpg');"><div class="small-slide-text">Steve is very good at going over things and explaining things. <span class="orange-text">Great experience,</span> he made sure to take the time to explain everything and was very thorough explaining it to make sure I understood. Being it is my first time buying a home I was a little worried about the inspection, but with how thorough and how great he was at explaining it made the whole process easy and educational.<br>Ben Karno</div></div>
@@ -265,7 +225,7 @@
 						<div class="inner">
 							<h2 class="major">Get in touch</h2>
 							<p>Ready to schedule your home inspection? Contact me today for a professional, thorough inspection of your property.</p>
-							<a href="contact.html" class="button primary" style="margin-bottom: 2em;">Schedule Your Inspection Today</a>
+							<a href="contact.html" class="button primary schedule-today-btn" style="margin-bottom: 2em;">Schedule Your Inspection Today</a>
 							<ul class="contact">
 								<li class="icon solid fa-home">
 									Best Choice Home Inspections LLC<br />

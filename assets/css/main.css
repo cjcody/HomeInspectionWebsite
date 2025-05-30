@@ -3565,7 +3565,7 @@ input, select, textarea {
 /* Wrapper */
 
 	#wrapper > header {
-		padding: 11em 0 0 0 ;
+		padding: 11em 0 2.25em 0 ;
 	}
 
 		#wrapper > header .inner {
@@ -3700,11 +3700,6 @@ input, select, textarea {
 			padding: 3em 0 1em 0 ;
 			margin: 0 auto;
 			width: 55em;
-		}
-
-		/* Specific rule for the main content .inner on the contact page */
-		section#wrapper > div.wrapper > div.inner {
-			padding-top: 0;
 		}
 
 		.wrapper.style2 {
@@ -4188,3 +4183,90 @@ input, select, textarea {
 		}
 
 	}
+
+	@media screen and (max-width: 360px) {
+		.logo-text {
+			font-size: 1.4em !important;
+			letter-spacing: 1px !important;
+		}
+	}
+
+	@media screen and (max-width: 425px) {
+		.schedule-inspection-btn {
+			display: block;
+			margin: 0 auto;
+		}
+	}
+
+		.services-contact-btn,
+		.about-contact-btn {
+			display: block;
+			margin: 0 auto;      
+		}
+
+		@media screen and (max-width: 360px) {
+			.schedule-today-btn {
+				font-size: 0.7em; /* or try 0.7em, 12px, etc. */
+				padding: 0 1.2em; /* adjust as needed for more/less space */
+			}
+		}
+
+		  @media screen and (min-width: 1280px) {
+			.family-slide {
+				background-position: center 25% !important; /* Example: move the image down */
+		 	 }
+			}
+			  
+/* Small slideshow styles */
+.small-slideshow {
+	position: relative;
+	width: 100%;
+	height: 240px;
+	overflow: hidden;
+	margin-bottom: 0;
+}
+.small-slide {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	transition: opacity 1s ease-in-out;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.small-slide.active {
+	opacity: 1;
+}
+.small-slide-text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+	padding: 15px 30px;
+	border-radius: 3px;
+	font-size: 0.9em;
+	text-align: center;
+	width: 100%; /* Set a specific width */
+}
+.orange-text {
+	color: #E67E22;
+	font-weight: bold;
+}
+
+			  /* Responsive font sizes */
+			  @media screen and (max-width: 980px) {
+				.small-slide-text {
+				  font-size: 0.8em !important;
+				}
+			  }
+			
+			  @media screen and (max-width: 360px) {
+				.small-slide-text {
+				  font-size: 0.7em !important;
+				}
+			  }
