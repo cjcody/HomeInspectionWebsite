@@ -344,5 +344,33 @@
 				});
 			</script>
 
+<script>
+	const form = document.getElementById("contact-form"); // Make sure your <form> has id="contact-form"
+  
+	form.addEventListener("submit", function (e) {
+	  e.preventDefault();
+  
+	  fetch("https://script.google.com/macros/s/AKfycbyv0k5TzGLqmMHic46bYI9fz5Q8Y11HJrCF1v3DyBb1BJgfVBwd07gEXpLAszmI-5OKxw/exec", {
+		method: "POST",
+		headers: { "Content-Type": "application/json" },
+		body: JSON.stringify({
+		  name: form.name.value,
+		  email: form.email.value,
+		  phone: form.phone.value,
+		  address: form.address.value,
+		  service: form.service.value,
+		  "preferred-date": form["preferred-date"].value,
+		  message: form.message.value
+		})
+	  })
+	  .then(() => {
+		alert("Thanks! Your request was submitted.");
+		form.reset();
+	  })
+	  .catch(() => alert("Something went wrong. Try again."));
+	});
+  </script>
+  
+
 	</body>
 </html> 
