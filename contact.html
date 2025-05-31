@@ -196,7 +196,7 @@
 									<section>
 										<h3>Schedule Your Inspection</h3>
 										<p>Fill out the form below to schedule your inspection or request more information. I'll get back to you as soon as possible, typically within 24 hours.</p>
-										<form id="contactForm" method="post">
+										<form id="contact-form" method="post">
 											<div class="fields">
 												<div class="field">
 													<label for="name">Name</label>
@@ -288,89 +288,49 @@
 					setInterval(nextSlide, 5000);
 
 					// Contact form handling
-					const contactForm = document.getElementById('contactForm');
-					const formStatus = document.getElementById('formStatus');
+					const form = document.getElementById("contact-form");
+					const formStatus = document.getElementById("formStatus");
+					const submitButton = form.querySelector('input[type="submit"]');
 
-					contactForm.addEventListener('submit', async (e) => {
+					form.addEventListener("submit", function(e) {
 						e.preventDefault();
-						
-						const submitButton = e.target.querySelector('input[type="submit"]');
-						
 						// Disable submit button and show loading state
 						submitButton.disabled = true;
 						submitButton.value = 'Sending...';
-						
-						try {
-							const formData = {
-								name: document.getElementById('name').value,
-								email: document.getElementById('email').value,
-								phone: document.getElementById('phone').value,
-								address: document.getElementById('address').value,
-								service: document.getElementById('service').value,
-								preferredDate: document.getElementById('preferred-date').value,
-								message: document.getElementById('message').value
-							};
-							
-							const response = await fetch('/api/contact', {
-								method: 'POST',
-								headers: {
-									'Content-Type': 'application/json'
-								},
-								body: JSON.stringify(formData)
-							});
-							
-							const data = await response.json();
-							
-							if (response.ok) {
-								formStatus.style.display = 'block';
-								formStatus.style.backgroundColor = '#4CAF50';
-								formStatus.style.color = 'white';
-								formStatus.textContent = 'Message sent successfully! We will get back to you soon.';
-								contactForm.reset();
-							} else {
-								throw new Error(data.error || 'Failed to send message');
+
+						const formData = new FormData(form);
+
+						fetch("https://script.google.com/macros/s/AKfycbyv0k5TzGLqmMHic46bYI9fz5Q8Y11HJrCF1v3DyBb1BJgfVBwd07gEXpLAszmI-5OKxw/exec", {
+							method: "POST",
+							body: formData
+						})
+						.then(response => {
+							if (!response.ok) {
+								throw new Error(`HTTP error! status: ${response.status}`);
 							}
-						} catch (error) {
+							return response.text();
+						})
+						.then(() => {
+							formStatus.style.display = 'block';
+							formStatus.style.backgroundColor = '#4CAF50';
+							formStatus.style.color = 'white';
+							formStatus.textContent = 'Message sent successfully! We will get back to you soon.';
+							form.reset();
+						})
+						.catch((error) => {
+							console.error('Error:', error);
 							formStatus.style.display = 'block';
 							formStatus.style.backgroundColor = '#f44336';
 							formStatus.style.color = 'white';
-							formStatus.textContent = error.message || 'Failed to send message. Please try again later.';
-						} finally {
-							// Re-enable submit button
+							formStatus.textContent = `Failed to send message: ${error.message}. Please try again later.`;
+						})
+						.finally(() => {
 							submitButton.disabled = false;
 							submitButton.value = 'Send Message';
-						}
+						});
 					});
 				});
 			</script>
-
-<script>
-	const form = document.getElementById("contact-form"); // Make sure your <form> has id="contact-form"
-  
-	form.addEventListener("submit", function (e) {
-	  e.preventDefault();
-  
-	  fetch("https://script.google.com/macros/s/AKfycbyv0k5TzGLqmMHic46bYI9fz5Q8Y11HJrCF1v3DyBb1BJgfVBwd07gEXpLAszmI-5OKxw/exec", {
-		method: "POST",
-		headers: { "Content-Type": "application/json" },
-		body: JSON.stringify({
-		  name: form.name.value,
-		  email: form.email.value,
-		  phone: form.phone.value,
-		  address: form.address.value,
-		  service: form.service.value,
-		  "preferred-date": form["preferred-date"].value,
-		  message: form.message.value
-		})
-	  })
-	  .then(() => {
-		alert("Thanks! Your request was submitted.");
-		form.reset();
-	  })
-	  .catch(() => alert("Something went wrong. Try again."));
-	});
-  </script>
-  
 
 	</body>
 </html> 
