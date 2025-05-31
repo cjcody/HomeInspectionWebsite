@@ -56,6 +56,12 @@
 			.slide.active {
 				opacity: 1;
 			}
+			/* Override preload behavior for slideshow on mobile */
+			@media screen and (max-width: 736px) {
+				body.is-preload .slideshow-container .slide {
+					transition: opacity 0s !important;
+				}
+			}
 			.family-slide {
 				background-position: center 10%;
 			}
